@@ -1,4 +1,5 @@
-package com.adobe.phonegap.push;
+package org.apache.cordova.push;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

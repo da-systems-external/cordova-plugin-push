@@ -2,8 +2,11 @@
   "name": "cordova-plugin-push",
   "description": "bower package for server side javascript",
   "main": "www/push.js",
-  "authors": ["Sunil Kumar"],
-  "license": "APL",
+  "authors": [
+    "Adobe PhoneGap Team",
+    "DA Systems"
+  ],
+  "license": "MIT",
   "keywords": [
     "ecosystem:cordova",
     "ecosystem:ionic",
@@ -12,7 +15,13 @@
     "cordova-windows",
     "cordova-browser"
   ],
-  "homepage": "https://github.com/KumarSunil007/cordova-plugin-push",
+  "homepage": "https://github.com/da-systems-external/cordova-plugin-push",
   "moduleType": [],
-  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"]
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }

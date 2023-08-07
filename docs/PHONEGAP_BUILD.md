@@ -1,10 +1,12 @@
 # Cloud Build Services
 
-* [PhoneGap Build Support](#phonegap-build-support)
-  * [Including the plugin](#including-the-plugin)
-  * [Adding Resources](#adding-resources)
-* [IntelXDK Support](#intelxdk-support)
-* [Ionic Cloud Build](#ionic-cloud-build)
+- [Cloud Build Services](#cloud-build-services)
+  - [PhoneGap Build Support](#phonegap-build-support)
+    - [Including the plugin](#including-the-plugin)
+    - [Adding resources](#adding-resources)
+      - [Android](#android)
+  - [IntelXDK Support](#intelxdk-support)
+  - [Ionic Cloud Build](#ionic-cloud-build)
 
 ## PhoneGap Build Support
 
@@ -14,16 +16,16 @@ Including this plugin in a project that is built by PhoneGap Build is as easy as
 
 ```xml
 <preference name="android-build-tool" value="gradle" />
-<plugin name="phonegap-plugin-push" source="npm">
+<plugin name="cordova-plugin-push" source="npm">
     <param name="SENDER_ID" value="123456789" />
 </plugin>
 ```
 
-into your app's `config.xml` file. PhoneGap Build will pick up the latest version of phonegap-plugin-push published on npm. If you want to specify a particular version of the plugin you can add the `spec` attribute to the `plugin` tag.
+into your app's `config.xml` file. PhoneGap Build will pick up the latest version of cordova-plugin-push published on npm. If you want to specify a particular version of the plugin you can add the `spec` attribute to the `plugin` tag.
 
 ```xml
 <preference name="android-build-tool" value="gradle" />
-<plugin name="phonegap-plugin-push" spec="~1.4.5" source="npm" />
+<plugin name="cordova-plugin-push" spec="~1.4.5" source="npm" />
 ```
 
 Note: version 1.3.0 of this plugin begins to use Gradle to install the Android Support Framework. Support for Gradle has recently been added to PhoneGap Build. Please read [this blog post](http://phonegap.com/blog/2015/09/28/android-using-gradle/) for more information.
@@ -63,8 +65,8 @@ Existing directories will be merged, but at this time any individual files you i
     b. (if needed) import your .p12 from (1c) - Account Settings->Developer Certificates->iOS, then select it as the Developer Certificate for the project
     c. Select "adhoc" for Provisioning Profile
     d. copy your provisioning profile from (1d) into www/, then click "Ad hoc Provisioning Profile" and select the profile
-    e. Add the latest version of phonegap-plugin-push as a "Third-Party Plugin" (at time of testing this was 1.6.4)
-    f. **After the plugin is added, you will need to edit plugins/phonegap-plugin-push/plugin.xml**. Intel XDK 3357 does not support plugins with gradle references, so the gradle reference must be commented out (this will prevent this version of the plugin from working for Android but is needed for the iOS build to succeed):
+    e. Add the latest version of cordova-plugin-push as a "Third-Party Plugin" (at time of testing this was 1.6.4)
+    f. **After the plugin is added, you will need to edit plugins/cordova-plugin-push/plugin.xml**. Intel XDK 3357 does not support plugins with gradle references, so the gradle reference must be commented out (this will prevent this version of the plugin from working for Android but is needed for the iOS build to succeed):
     `<!--framework src="push.gradle" custom="true" type="gradleReference" /-->`
     A future version of Intel XDK will support gradle references.
 
@@ -81,7 +83,7 @@ Existing directories will be merged, but at this time any individual files you i
 8.  The angle brackets and everything between (from (5)) is the device token - copy it into a text file
 
 9.  Add the device token to your server and send a push notification
-    a. I used [phonegap-plugin-push/example/server/pushAPNS.rb](https://github.com/phonegap/phonegap-plugin-push/blob/master/example/server/pushAPNS.rb) for this
+    a. I used [cordova-plugin-push/example/server/pushAPNS.rb](https://github.com/phonegap/cordova-plugin-push/blob/master/example/server/pushAPNS.rb) for this
     b. APNS.host = 'gateway.push.apple.com'
     c. APNS.pem = 'PGPush926Prod.pem' #path to your pem file from (1e)
     d. device_token = '\<XXXXXXXX 19b101a3 71590c03 9ea7f446 50eb8409 19ac24bb c1ec1320 XXXXXXXX\>' #the device token from (7)
@@ -95,10 +97,10 @@ Existing directories will be merged, but at this time any individual files you i
 
 Users have reported issues with Ionic Cloud Build. Apparently there are some differences in the way variables are handled. If your app has an issue where the `PushNotification` object can't be found try the following.
 
-1.  Remove the inclusion of `phonegap-plugin-push` from config.xml. That is delete lines that look like this:
+1.  Remove the inclusion of `cordova-plugin-push` from config.xml. That is delete lines that look like this:
 
 ```xml
-<plugin name="phonegap-plugin-push" spec="~1.9.1">
+<plugin name="cordova-plugin-push" spec="~1.9.1">
   <variable name="SENDER_ID" value="xxx"/>
 </plugin>
 ```
@@ -110,6 +112,6 @@ Users have reported issues with Ionic Cloud Build. Apparently there are some dif
   "variables": {
     "SENDER_ID": "xxx"
   },
-  "locator": "phonegap-plugin-push"
+  "locator": "cordova-plugin-push"
 }
 ```

@@ -1,68 +1,59 @@
 {
-  "name": "cordova-plugin-push",
+  "name": "@da-systems-external/cordova-plugin-push",
+  "version": "3.1.0",
   "description": "Register and receive push notifications.",
+  "scripts": {
+    "build": "babel src/js --out-dir www",
+    "build:watch": "nodemon -w ./src/js -e js -x npm run build",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "jasmine": "jasmine --config=spec/unit.json",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
+    "test": "npm run build && npm run lint && npm run jasmine"
+  },
+  "repository": "github:da-systems-external/cordova-plugin-push",
+  "keywords": [
+    "ecosystem:cordova",
+    "ecosystem:ionic",
+    "cordova-ios",
+    "cordova-android",
+    "cordova-windows",
+    "cordova-browser"
+  ],
+  "author": "Erisu",
+  "license": "MIT",
+  "bugs": "https://github.com/da-systems-external/cordova-plugin-push/issues",
+  "homepage": "https://github.com/da-systems-external/cordova-plugin-push#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/eslint-parser": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "@cordova/eslint-config": "^4.0.0",
+    "babel-plugin-add-header-comment": "^1.0.3",
+    "fs-extra": "^10.0.0",
+    "jasmine": "^3.9.0",
+    "nodemon": "^2.0.12",
+    "nopt": "^5.0.0",
+    "xml2js": "^0.4.23"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "2.0.0": {
+        "cordova": ">=10.0.0",
+        "cordova-android": ">=10.0.0",
+        "cordova-ios": ">=6.0.0"
+      }
+    }
+  },
   "types": "./types/index.d.ts",
-  "version": "2.3.1",
-  "homepage": "http://github.com/KumarSunil007/cordova-plugin-push#readme",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/KumarSunil007/cordova-plugin-push.git"
-  },
-  "bugs": {
-    "url": "https://github.com/KumarSunil007/cordova-plugin-push/issues"
-  },
   "cordova": {
-    "id": "cordova-plugin-push",
+    "id": "@da-systems-external/cordova-plugin-push",
     "platforms": [
       "ios",
       "android",
       "windows",
       "browser"
     ]
-  },
-  "keywords": [
-    "ecosystem:cordova",
-    "ecosystem:ionic",
-    "cordova-ios",
-    "cordova-android",
-    "cordova-windows8",
-    "cordova-windows",
-    "cordova-wp8",
-    "cordova-browser"
-  ],
-  "engines": {
-    "cordovaDependencies": {
-      "2.3.1": {
-        "cordova-ios": ">=5.1.0",
-        "cordova-android": ">=10.0.0",
-        "cordova": ">=10.0.0"
-      }
-    }
-  },
-  "author": "Sunil Kumar",
-  "license": "MIT",
-  "scripts": {
-    "build": "babel src/js --out-dir www",
-    "build:watch": "nodemon -w ./src/js -e js -x npm run build",
-    "eslint": "eslint src/js",
-    "jasmine": "jasmine --config=spec/unit.json",
-    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
-    "test": "npm run build && npm run eslint && npm run jasmine"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.18.10",
-    "@babel/core": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
-    "babel-eslint": "^10.1.0",
-    "babel-plugin-add-header-comment": "^1.0.3",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "jasmine": "^4.3.0",
-    "nodemon": "^2.0.19",
-    "pluginpub": "^0.0.9"
-  },
-  "dependencies": {
-    "install": "^0.13.0"
   }
 }

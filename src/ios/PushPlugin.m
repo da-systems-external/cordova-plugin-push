@@ -467,8 +467,16 @@
         // send notification message
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:message];
         [pluginResult setKeepCallbackAsBool:YES];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
-
+        
+        // TX-948: Trap serialisation error for (scheduled) foreground notifications
+        //  caused by the conversion of a valid (`updatedAt`) `NSDate` into invalid
+        //  `__NSTaggedDate` by ... something 
+        @try {
+          [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
+        } @catch (NSException *exception) {
+          NSLog(@"[W] PushPlugin: Unable to send plugin result: %@", exception);
+//        Noisy :> NSLog(@"%@", pluginResult.message[@"additionalData"]);
+        }
         self.coldstart = NO;
         self.notificationMessage = nil;
     }

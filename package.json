@@ -1,6 +1,6 @@
 {
   "name": "@da-systems-external/cordova-plugin-push",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Register and receive push notifications.",
   "scripts": {
     "build": "babel src/js --out-dir www",

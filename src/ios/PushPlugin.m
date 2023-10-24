@@ -246,13 +246,13 @@
                     NSString *identifier = key;
 
                     NSMutableArray<UNNotificationAction *> *actions = [[NSMutableArray alloc] init];
-                    if (yesButton != nil) {
+                    if (yesAction != nil) {
                         [actions addObject:yesAction];
                     }
-                    if (noButton != nil) {
+                    if (noAction != nil) {
                         [actions addObject:noAction];
                     }
-                    if (maybeButton != nil) {
+                    if (maybeAction != nil) {
                         [actions addObject:maybeAction];
                     }
 

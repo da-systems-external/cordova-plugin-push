@@ -12,7 +12,6 @@
     "ecosystem:ionic",
     "cordova-ios",
     "cordova-android",
-    "cordova-windows",
     "cordova-browser"
   ],
   "homepage": "https://github.com/da-systems-external/cordova-plugin-push",

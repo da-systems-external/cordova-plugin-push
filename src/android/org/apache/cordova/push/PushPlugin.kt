@@ -1,4 +1,4 @@
-package com.adobe.phonegap.push
+package org.apache.cordova.push
 
 import android.Manifest
 import android.annotation.SuppressLint

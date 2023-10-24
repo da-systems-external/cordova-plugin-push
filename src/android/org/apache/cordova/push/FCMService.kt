@@ -13,10 +13,10 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.text.Html
 import android.text.Spanned
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.core.text.HtmlCompat
 import androidx.core.app.RemoteInput
 import org.apache.cordova.push.PushPlugin.Companion.isActive
 import org.apache.cordova.push.PushPlugin.Companion.isInForeground
@@ -1187,8 +1187,8 @@ class FCMService : FirebaseMessagingService() {
   }
 
   private fun fromHtml(source: String?): Spanned? {
-    return if (source != null) Html.fromHtml(source) else null
-  }
+    return if (source != null) HtmlCompat.fromHtml(source, HtmlCompat.FROM_HTML_MODE_LEGACY) else null
+   }
 
   private fun isAvailableSender(from: String?): Boolean {
     val savedSenderID = pushSharedPref.getString(PushConstants.SENDER_ID, "")

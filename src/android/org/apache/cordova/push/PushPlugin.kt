@@ -449,7 +449,7 @@ class PushPlugin : CordovaPlugin() {
       Log.v(TAG, formatLogMessage("Data=$data"))
 
       val sharedPref = applicationContext.getSharedPreferences(
-        PushConstants.COM_ADOBE_PHONEGAP_PUSH,
+        PushConstants.ORG_APACHE_CORDOVA_PUSH,
         Context.MODE_PRIVATE
       )
       var jo: JSONObject? = null
@@ -633,7 +633,7 @@ class PushPlugin : CordovaPlugin() {
     cordova.threadPool.execute {
       try {
         val sharedPref = applicationContext.getSharedPreferences(
-          PushConstants.COM_ADOBE_PHONEGAP_PUSH,
+          PushConstants.ORG_APACHE_CORDOVA_PUSH,
           Context.MODE_PRIVATE
         )
         val topics = data.optJSONArray(0)
@@ -848,7 +848,7 @@ class PushPlugin : CordovaPlugin() {
 
     // Clear Notification
     applicationContext.getSharedPreferences(
-      PushConstants.COM_ADOBE_PHONEGAP_PUSH,
+      PushConstants.ORG_APACHE_CORDOVA_PUSH,
       Context.MODE_PRIVATE
     ).apply {
       if (getBoolean(PushConstants.CLEAR_NOTIFICATIONS, true)) {

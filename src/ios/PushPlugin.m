@@ -477,7 +477,7 @@
           NSLog(@"[W] PushPlugin: Unable to send plugin result: %@", exception);
 //        Noisy :> NSLog(@"%@", pluginResult.message[@"additionalData"]);
           pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@""];
-          [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+          [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
         }
         self.coldstart = NO;
         self.notificationMessage = nil;
